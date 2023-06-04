@@ -20,6 +20,9 @@ import {bowlingGameScore} from "./bowling-game.js";
         test("scores if spare + next roll" , ()=>{
             expect(bowlingGameScore("6/4 3/- -/- -/- -/- -/- -/- -/- -/- -/-")).toBe(16);
         });
+        test("scores if spare + next roll" , ()=>{
+            expect(bowlingGameScore("10 1/1 -/- -/- -/- -/- -/- -/- -/- -/-")).toBe(14);
+        });
     });
 
     

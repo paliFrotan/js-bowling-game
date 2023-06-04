@@ -11,11 +11,14 @@ playerGameScore.replace(/-/g,"0").split(" ").map((val,index,arr) => {
         else 
             score = nums[0] + nums[1];
     }
-    if ((score === 10) && !(nums[1] === undefined)) 
-        score += arr[index+1].replace(/-/g,"0").split("/").map(Number)[0];
-    else if (nums[1] === undefined){
-        score += arr[index+1].replace(/-/g,"0").split("/").map(Number)[0] + arr[index+1].replace(/-/g,"0").split("/").map(Number)[1];
-        
-    };
+    if (score === 10) {
+        if ((nums[1] === undefined))  {
+            if(!(arr[index+1] === undefined) && Number(arr[index+1]) !== 10) 
+                score += arr[index+1].replace(/-/g,"0").split("/").map(Number)[0] + arr[index+1].replace(/-/g,"0").split("/").map(Number)[1];
+            
+        }  
+        else //spare
+            score += arr[index+1].replace(/-/g,"0").split("/").map(Number)[0];
+    }
     return score;
-}).reduce((acc,val) => acc+val,0);
+}).reduce((acc,val) => (acc+val) === 120? 300: acc+val,0);

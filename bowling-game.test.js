@@ -20,8 +20,11 @@ import {bowlingGameScore} from "./bowling-game.js";
         test("scores if spare + next roll" , ()=>{
             expect(bowlingGameScore("6/4 3/- -/- -/- -/- -/- -/- -/- -/- -/-")).toBe(16);
         });
-        test("scores if spare + next roll" , ()=>{
+        test("scores if strike + next 2 rolls" , ()=>{
             expect(bowlingGameScore("10 1/1 -/- -/- -/- -/- -/- -/- -/- -/-")).toBe(14);
+        });
+        test("scores 300 if strikes on all rolls" , ()=>{
+            expect(bowlingGameScore("10 10 10 10 10 10 10 10 10 10 10 10")).toBe(300);
         });
     });
 

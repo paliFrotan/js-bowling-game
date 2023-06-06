@@ -23,9 +23,16 @@ import {bowlingGameScore} from "./bowling-game.js";
         test("scores if strike + next 2 rolls" , ()=>{
             expect(bowlingGameScore("10 1/1 -/- -/- -/- -/- -/- -/- -/- -/-")).toBe(14);
         });
-        test("scores 300 if strikes on all rolls" , ()=>{
-            expect(bowlingGameScore("10 10 10 10 10 10 10 10 10 10 10 10")).toBe(300);
+        test("scores if strike, strike  + next 2 rolls" , ()=>{
+            expect(bowlingGameScore("10 10 1/1 -/- -/- -/- -/- -/- -/- -/-")).toBe(35);
         });
+        test("scores 300 if strikes on all rolls" , ()=>{
+            expect(bowlingGameScore("10 10 10 10 10 10 10 10 10 10 10 10")).toBe(320);
+        });
+        test("scores 150  spares on all rolls + last roll" , ()=>{
+            expect(bowlingGameScore("5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 6")).toBe(156);
+        });
+        
     });
 
     
